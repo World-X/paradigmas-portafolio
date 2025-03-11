@@ -1,5 +1,5 @@
 *.lock
-public/
+# public/
 dist/
 bin/
 obj/
