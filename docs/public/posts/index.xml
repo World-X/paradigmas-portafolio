@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Sitio de Javier</title>
-    <link>https://example.org/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Sitio de Javier</description>
     <generator>Hugo</generator>
     <language>es-mx</language>
-    <lastBuildDate>Sat, 08 Mar 2025 20:24:30 -0800</lastBuildDate>
-    <atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Mar 2025 10:02:42 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Práctica 1</title>
+      <link>http://localhost:1313/posts/pr%C3%A1ctica1/</link>
+      <pubDate>Thu, 13 Mar 2025 10:02:42 -0700</pubDate>
+      <guid>http://localhost:1313/posts/pr%C3%A1ctica1/</guid>
+      <description>&lt;h2 id=&#34;elementos-fundamentales-de-los-lenguajes-de-programación&#34;&gt;Elementos fundamentales de los lenguajes de programación&lt;/h2&gt;&#xA;&lt;p&gt;Aquí está el &lt;a href=&#34;https://github.com/World-X/paradigmas-portafolio&#34;&gt;repositorio&lt;/a&gt; y el &lt;a href=&#34;https://world-x.github.io/paradigmas-portafolio/&#34;&gt;sitio web&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-nombres&#34;&gt;1. Nombres&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// biblioteca.c:7&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; static_var; &lt;span style=&#34;color:#75715e&#34;&gt;// static_var&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// biblioteca.c:10&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; bss_var; &lt;span style=&#34;color:#75715e&#34;&gt;// bss_var&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// biblioteca.c:74&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;book_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;new_book &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;book_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;malloc&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;sizeof&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;book_t&lt;/span&gt;)); &lt;span style=&#34;color:#75715e&#34;&gt;// new_book&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>Práctica 0</title>
-      <link>https://example.org/posts/pr%C3%A1ctica0/</link>
+      <link>http://localhost:1313/posts/pr%C3%A1ctica0/</link>
       <pubDate>Sat, 08 Mar 2025 20:24:30 -0800</pubDate>
-      <guid>https://example.org/posts/pr%C3%A1ctica0/</guid>
+      <guid>http://localhost:1313/posts/pr%C3%A1ctica0/</guid>
       <description>&lt;h2 id=&#34;markdown&#34;&gt;Markdown&lt;/h2&gt;&#xA;&lt;p&gt;Markdown es un lenguaje de marcado que &lt;em&gt;facilita la aplicación de formato&lt;/em&gt; a un texto empleando una serie de caracteres de una forma especial. En principio, fue pensado para elaborar textos cuyo destino iba a ser la web con más rapidez y sencillez que si estuviésemos empleando directamente HTML. Y si bien ese suele ser el mejor uso que podemos darle, también podemos emplearlo para cualquier tipo de texto, independientemente de cual vaya a ser su destino. - &lt;a href=&#34;https://www.genbeta.com/guia-de-inicio/que-es-markdown-para-que-sirve-y-como-usarlo&#34;&gt;Fuente&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

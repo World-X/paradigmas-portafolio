@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Práctica 1 | Sitio de Javier</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Elementos fundamentales de los lenguajes de programación
+Aquí está el repositorio y el sitio web.
+1. Nombres
+Algunos nombres (identificadores) son: static_var, bss_var, FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t, new_book.
+// biblioteca.c:7
+static int static_var = 0; // static_var
+// biblioteca.c:10
+int bss_var; // bss_var
+// biblioteca.c:12-20
+typedef enum { // FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t
+    FICTION,
+    NON_FICTION,
+    SCIENCE,
+    HISTORY,
+    FANTASY,
+    BIOGRAPHY,
+    OTHER
+} genre_t;
+// biblioteca.c:74
+book_t *new_book = (book_t *) malloc(sizeof(book_t)); // new_book
+2. Objetos
+No hay clases u objetos en C, y a pesar que lo más cercano son las estructuras, todas son creadas de forma dinámica.">
+    <meta name="generator" content="Hugo 0.144.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/pr%C3%A1ctica1/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/pr%C3%A1ctica1/">
+  <meta property="og:site_name" content="Sitio de Javier">
+  <meta property="og:title" content="Práctica 1">
+  <meta property="og:description" content="Elementos fundamentales de los lenguajes de programación Aquí está el repositorio y el sitio web.
+1. Nombres Algunos nombres (identificadores) son: static_var, bss_var, FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t, new_book.
+// biblioteca.c:7 static int static_var = 0; // static_var // biblioteca.c:10 int bss_var; // bss_var // biblioteca.c:12-20 typedef enum { // FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER } genre_t; // biblioteca.c:74 book_t *new_book = (book_t *) malloc(sizeof(book_t)); // new_book 2. Objetos No hay clases u objetos en C, y a pesar que lo más cercano son las estructuras, todas son creadas de forma dinámica.">
+  <meta property="og:locale" content="es_mx">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-13T10:02:42-07:00">
+    <meta property="article:modified_time" content="2025-03-13T10:02:42-07:00">
+
+  <meta itemprop="name" content="Práctica 1">
+  <meta itemprop="description" content="Elementos fundamentales de los lenguajes de programación Aquí está el repositorio y el sitio web.
+1. Nombres Algunos nombres (identificadores) son: static_var, bss_var, FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t, new_book.
+// biblioteca.c:7 static int static_var = 0; // static_var // biblioteca.c:10 int bss_var; // bss_var // biblioteca.c:12-20 typedef enum { // FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER } genre_t; // biblioteca.c:74 book_t *new_book = (book_t *) malloc(sizeof(book_t)); // new_book 2. Objetos No hay clases u objetos en C, y a pesar que lo más cercano son las estructuras, todas son creadas de forma dinámica.">
+  <meta itemprop="datePublished" content="2025-03-13T10:02:42-07:00">
+  <meta itemprop="dateModified" content="2025-03-13T10:02:42-07:00">
+  <meta itemprop="wordCount" content="455">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Práctica 1">
+  <meta name="twitter:description" content="Elementos fundamentales de los lenguajes de programación Aquí está el repositorio y el sitio web.
+1. Nombres Algunos nombres (identificadores) son: static_var, bss_var, FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t, new_book.
+// biblioteca.c:7 static int static_var = 0; // static_var // biblioteca.c:10 int bss_var; // bss_var // biblioteca.c:12-20 typedef enum { // FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER } genre_t; // biblioteca.c:74 book_t *new_book = (book_t *) malloc(sizeof(book_t)); // new_book 2. Objetos No hay clases u objetos en C, y a pesar que lo más cercano son las estructuras, todas son creadas de forma dinámica.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Sitio de Javier
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Práctica 1</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-03-13T10:02:42-07:00">March 13, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="elementos-fundamentales-de-los-lenguajes-de-programación">Elementos fundamentales de los lenguajes de programación</h2>
+<p>Aquí está el <a href="https://github.com/World-X/paradigmas-portafolio">repositorio</a> y el <a href="https://world-x.github.io/paradigmas-portafolio/">sitio web</a>.</p>
+<h3 id="1-nombres">1. Nombres</h3>
+<p>Algunos nombres (identificadores) son: <code>static_var</code>, <code>bss_var</code>, <code>FICTION</code>, <code>NON_FICTION</code>, <code>SCIENCE</code>, <code>HISTORY</code>, <code>FANTASY</code>, <code>BIOGRAPHY</code>, <code>OTHER</code>, <code>genre_t</code>, <code>new_book</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> static_var <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// static_var
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> bss_var; <span style="color:#75715e">// bss_var
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:12-20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> { <span style="color:#75715e">// FICTION, NON_FICTION, SCIENCE, HISTORY, FANTASY, BIOGRAPHY, OTHER, genre_t
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    FICTION,
+</span></span><span style="display:flex;"><span>    NON_FICTION,
+</span></span><span style="display:flex;"><span>    SCIENCE,
+</span></span><span style="display:flex;"><span>    HISTORY,
+</span></span><span style="display:flex;"><span>    FANTASY,
+</span></span><span style="display:flex;"><span>    BIOGRAPHY,
+</span></span><span style="display:flex;"><span>    OTHER
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">genre_t</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:74
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">book_t</span> <span style="color:#f92672">*</span>new_book <span style="color:#f92672">=</span> (<span style="color:#66d9ef">book_t</span> <span style="color:#f92672">*</span>) <span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">book_t</span>)); <span style="color:#75715e">// new_book
+</span></span></span></code></pre></div><h3 id="2-objetos">2. Objetos</h3>
+<p>No hay clases u objetos en C, y a pesar que lo más cercano son las estructuras, todas son creadas de forma dinámica.</p>
+<h3 id="3-entornos">3. Entornos</h3>
+<h4 id="31-variables">3.1. Variables</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> static_var <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span></code></pre></div><h3 id="4-bloques">4. Bloques</h3>
+<p>Esta porción de código muestra dos bloques de código, uno para la función <code>genreToString</code> y otro para el <code>switch</code> dentro de la misma.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:59-70
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">genreToString</span>(<span style="color:#66d9ef">genre_t</span> genre) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> (genre) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> FICTION: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Ficcion&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> NON_FICTION: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;No Ficcion&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> SCIENCE: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Ciencia&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> HISTORY: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Historia&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> FANTASY: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Fantasia&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> BIOGRAPHY: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Biografia&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> OTHER: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Otro&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Desconocido&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="5-alcance">5. Alcance</h3>
+<h4 id="51-global">5.1. Global</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// memory_management.h:12-15
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> heap_allocations; <span style="color:#75715e">// heap_allocations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> heap_deallocations; <span style="color:#75715e">// heap_deallocations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> stack_allocations; <span style="color:#75715e">// stack_allocations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> stack_deallocations; <span style="color:#75715e">// stack_deallocations
+</span></span></span></code></pre></div><h4 id="52-archivo">5.2. Archivo</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> static_var <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span></code></pre></div><h4 id="53-local">5.3. Local</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:98.addBook&lt;void&gt;(book_t **, int *)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> genre;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:170.issueBook&lt;void&gt;(book_t **, member_t *)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> bookID, memberID;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:212.returnBook&lt;void&gt;(book_t *, member_t *)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> bookID, memberID;
+</span></span></code></pre></div><h3 id="6-administración-de-memoria">6. Administración de memoria</h3>
+<h3 id="7-expresiones">7. Expresiones</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:116-118
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (current<span style="color:#f92672">-&gt;</span>id <span style="color:#f92672">==</span> bookID) { <span style="color:#75715e">// current-&gt;id == bookID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> current;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:181-184
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (current_book<span style="color:#f92672">-&gt;</span>id <span style="color:#f92672">==</span> bookID <span style="color:#f92672">&amp;&amp;</span> current_book<span style="color:#f92672">-&gt;</span>quantity <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) { <span style="color:#75715e">// current_book-&gt;id == bookID &amp;&amp; current_book-&gt;quantity &gt; 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    bookFound <span style="color:#f92672">=</span> current_book;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:198
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>bookFound<span style="color:#f92672">-&gt;</span>quantity<span style="color:#f92672">--</span>; <span style="color:#75715e">// bookFound-&gt;quantity--
+</span></span></span></code></pre></div><h3 id="8-comandos">8. Comandos</h3>
+<h3 id="9-secuencia">9. Secuencia</h3>
+<h3 id="10-selección">10. Selección</h3>
+<h3 id="11-iteración">11. Iteración</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:362-364
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> current<span style="color:#f92672">-&gt;</span>issued_count; i<span style="color:#f92672">++</span>) { <span style="color:#75715e">// i
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fprintf</span>(file, <span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, current<span style="color:#f92672">-&gt;</span>issued_books[i]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:392-394
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> new_member<span style="color:#f92672">-&gt;</span>issued_count; i<span style="color:#f92672">++</span>) { <span style="color:#75715e">// i
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fscanf</span>(file, <span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>new_member<span style="color:#f92672">-&gt;</span>issued_books[i]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="12-recursión">12. Recursión</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:124-131.displayBooksRecursive&lt;void&gt;(book_t *)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">displayBooksRecursive</span>(<span style="color:#66d9ef">book_t</span> <span style="color:#f92672">*</span>library) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>library) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">ID libro: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Titulo: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Autor: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Ano de publicacion: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Genero: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Cantidad: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>        library<span style="color:#f92672">-&gt;</span>id, library<span style="color:#f92672">-&gt;</span>title, library<span style="color:#f92672">-&gt;</span>author, library<span style="color:#f92672">-&gt;</span>publication_year, <span style="color:#a6e22e">genreToString</span>(library<span style="color:#f92672">-&gt;</span>genre), library<span style="color:#f92672">-&gt;</span>quantity);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">displayBooksRecursive</span>(library<span style="color:#f92672">-&gt;</span>next);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="13-subprogramas">13. Subprogramas</h3>
+<h3 id="14-tipos-de-datos">14. Tipos de datos</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:12-20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> { <span style="color:#75715e">// genre_t
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    FICTION,
+</span></span><span style="display:flex;"><span>    NON_FICTION,
+</span></span><span style="display:flex;"><span>    SCIENCE,
+</span></span><span style="display:flex;"><span>    HISTORY,
+</span></span><span style="display:flex;"><span>    FANTASY,
+</span></span><span style="display:flex;"><span>    BIOGRAPHY,
+</span></span><span style="display:flex;"><span>    OTHER
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">genre_t</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:22-30
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> _book { <span style="color:#75715e">// book_t
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> title[<span style="color:#ae81ff">100</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> author[<span style="color:#ae81ff">100</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> publication_year;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">genre_t</span> genre;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> quantity;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> _book <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">book_t</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// biblioteca.c:32-38
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> _member { <span style="color:#75715e">// member_t
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">100</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> issued_count;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>issued_books;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> _member <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">member_t</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// memory_management.c:10-14
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> MemoryRecord { <span style="color:#75715e">// MemoryRecord
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">size_t</span> size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> MemoryRecord <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} MemoryRecord;
+</span></span></code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  Sitio de Javier 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
