@@ -4,6 +4,42 @@ draft = false
 title = 'Práctica 0'
 +++
 
+## Tabla de contenido
+
+- [Markdown](#markdown)
+  - [Encabezados](#encabezados)
+  - [Énfasis](#énfasis)
+  - [Listas](#listas)
+    - [No ordenadas](#no-ordenadas)
+    - [Ordenadas](#ordenadas)
+  - [Enlaces](#enlaces)
+  - [Imágenes](#imágenes)
+  - [Citas](#citas)
+  - [Líneas horizontales](#líneas-horizontales)
+  - [Código](#código)
+  - [Tablas](#tablas)
+  - [Tareas](#tareas)
+- [Git y GitHub](#git-y-github)
+  - [Comandos básicos de Git](#comandos-básicos-de-git)
+    - [git init](#git-init)
+    - [git add](#git-add)
+    - [git commit](#git-commit)
+    - [git status](#git-status)
+    - [git log](#git-log)
+    - [git push](#git-push)
+    - [git pull](#git-pull)
+    - [git clone](#git-clone)
+    - [git fetch](#git-fetch)
+    - [git merge](#git-merge)
+    - [git branch](#git-branch)
+    - [git checkout](#git-checkout)
+    - [git reset](#git-reset)
+- [Hugo](#hugo)
+  - [Instalación](#instalación)
+  - [Creación de un sitio](#creación-de-un-sitio)
+  - [Creación de contenido](#creación-de-contenido)
+  - [Publicación (con GitHub Pages)](#publicación-con-github-pages)
+
 ## Markdown
 
 Markdown es un lenguaje de marcado que *facilita la aplicación de formato* a un texto empleando una serie de caracteres de una forma especial. En principio, fue pensado para elaborar textos cuyo destino iba a ser la web con más rapidez y sencillez que si estuviésemos empleando directamente HTML. Y si bien ese suele ser el mejor uso que podemos darle, también podemos emplearlo para cualquier tipo de texto, independientemente de cual vaya a ser su destino. - [Fuente](https://www.genbeta.com/guia-de-inicio/que-es-markdown-para-que-sirve-y-como-usarlo)
@@ -505,3 +541,125 @@ Reset a un commit específico.
 ```bash
 git reset --hard <commit-sha>
 ```
+
+## Hugo
+
+Hugo es un generador de sitios web estáticos rápido, libre y escrito en Go.
+
+### Instalación
+
+Para instalar Hugo, debemos seguir los siguientes pasos:
+
+1. Descargar el archivo binario de la [página oficial](https://gohugo.io/getting-started/installing/).
+2. Descomprimir el archivo en una carpeta de tu preferencia.
+3. Añadir la carpeta al PATH del sistema.
+4. Verificar la instalación con el comando `hugo version`.
+
+### Creación de un sitio
+
+1. Crear un nuevo sitio con el comando `hugo new site [nombre]`, donde `[nombre]` es el nombre de tu sitio.
+2. Moverte al directorio del sitio con `cd [nombre]`.
+3. Iniciar control de versiones con `git init`.
+4. Añadir un tema con `git submodule add [URL] themes/[nombre]`, donde `[URL]` es la URL del tema y `[nombre]` es el nombre del tema.
+   - Ejemplo: `git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke`.
+5. Añadir el tema al archivo de configuración `config.toml`.
+   - Ejemplo: `theme = "ananke"`.
+6. Correr el servidor local con `hugo server`.
+
+### Creación de contenido
+
+1. Crear una nueva página con `hugo new content content/posts/[nombre].md`, donde `[nombre]` es el nombre de la página.
+2. Editar la página con tu editor de texto favorito.
+
+### Publicación (con GitHub Pages)
+
+1. Crear un cuenta en [GitHub](https://github.com/signup).
+2. Crear un nuevo repositorio.
+3. Publicar el sitio con `git push origin master`.
+4. Habilitar GitHub Pages en la configuración del repositorio.
+5. Crea un archivo `hugo.yaml` en `.github/workflows/` con el siguiente contenido:
+```yaml
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Deploy Hugo site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.144.2
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: America/Los_Angeles
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+6. Publica el archivo con `git push origin main`.
+7. Verifica que el sitio se haya publicado correctamente.
+8. ¡Listo! Tu sitio está en línea.
+
+[Regresar al inicio](#tabla-de-contenido).
