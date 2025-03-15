@@ -1,8 +1,35 @@
 +++
 date = '2025-03-13T10:02:42-07:00'
-draft = true
+draft = false
 title = 'Práctica 1'
 +++
+
+## Tabla de contenido
+
+- [Elementos fundamentales de los lenguajes de programación](#elementos-fundamentales-de-los-lenguajes-de-programación)
+  - [1. Nombres](#1-nombres)
+  - [2. Objetos](#2-objetos)
+  - [3. Entornos](#3-entornos)
+    - [3.1. Global](#31-global)
+    - [3.2. Locales](#32-locales)
+    - [3.3. No locales](#33-no-locales)
+  - [4. Bloques](#4-bloques)
+  - [5. Alcance](#5-alcance)
+    - [5.1. Bloques en línea anidados](#51-bloques-en-línea-anidados)
+    - [5.2. Alcance en funciones](#52-alcance-en-funciones)
+  - [6. Administración de memoria](#6-administración-de-memoria)
+    - [6.1. Almacenamiento estático](#61-almacenamiento-estático)
+    - [6.2. Almacenamiento automático](#62-almacenamiento-automático)
+    - [6.3. Almacenamiento de hilo local o subproceso](#63-almacenamiento-de-hilo-local-o-subproceso)
+    - [6.4. Almacenamiento dinámico](#64-almacenamiento-dinámico)
+  - [7. Expresiones](#7-expresiones)
+  - [8. Comandos](#8-comandos)
+  - [9. Secuencia](#9-secuencia)
+    - [9.1. Selección](#91-selección)
+    - [9.2. Iteración](#92-iteración)
+    - [9.3. Recursión](#93-recursión)
+    - [9.4. Subprogramas](#94-subprogramas)
+  - [10. Tipos de datos](#10-tipos-de-datos)
 
 ## Elementos fundamentales de los lenguajes de programación
 
@@ -46,12 +73,26 @@ No hay clases u objetos en C, y a pesar que lo más cercano son las estructuras,
 
 ### 3. Entornos
 
-#### 3.1. Variables
+#### 3.1. Global
 
 ```c
-// biblioteca.c:7
-static int static_var = 0;
+// memory_management.h:12-15
+extern int heap_allocations;
+extern int heap_deallocations;
+extern int stack_allocations;
+extern int stack_deallocations;
 ```
+
+### 3.2. Locales
+
+```c
+// biblioteca.c:170
+int bookID, memberID;
+```
+
+### 3.3. No locales
+
+No existen variables no locales en C.
 
 ### 4. Bloques
 
@@ -59,8 +100,8 @@ Esta porción de código muestra dos bloques de código, uno para la función `g
 
 ```c
 // biblioteca.c:59-70
-const char* genreToString(genre_t genre) {
-    switch (genre) {
+const char* genreToString(genre_t genre) { // Bloque 1 (inicio)
+    switch (genre) { // Bloque 2 (inicio)
         case FICTION: return "Ficcion";
         case NON_FICTION: return "No Ficcion";
         case SCIENCE: return "Ciencia";
@@ -69,49 +110,87 @@ const char* genreToString(genre_t genre) {
         case BIOGRAPHY: return "Biografia";
         case OTHER: return "Otro";
         default: return "Desconocido";
-    }
-}
+    } // Bloque 2 (fin)
+} // Bloque 1 (fin)
 ```
 
 ### 5. Alcance
 
-#### 5.1. Global
+#### 5.1. Bloques en línea anidados
 
 ```c
-// memory_management.h:12-15
-extern int heap_allocations; // heap_allocations
-extern int heap_deallocations; // heap_deallocations
-extern int stack_allocations; // stack_allocations
-extern int stack_deallocations; // stack_deallocations
+// biblioteca.c:113-122
+book_t* findBookById(book_t *library, int bookID) { // Bloque 1 (inicio)
+    book_t *current = library;
+    while (current) { // Bloque 2 (inicio)
+        if (current->id == bookID) { // Bloque 3 (inicio)
+            return current;
+        } // Bloque 3 (fin)
+        current = current->next;
+    } // Bloque 2 (fin)
+    return NULL;
+} // Bloque 1 (fin)
 ```
 
-#### 5.2. Archivo
+#### 5.2. Alcance en funciones
+
+`bookFound` y `memberFound` son variables locales en las funciones `issueBook` y `returnBook`, es decir, su alcance es solo dentro de las funciones, no son las mismas variables.
+
+```c
+// biblioteca.c:169-177,209
+void issueBook(book_t *library, member_t *members) {
+    int bookID, memberID;
+    printf("\nIngresa el ID del miembro: ");
+    scanf("%d", &memberID);
+    printf("Ingresa el ID del libro: ");
+    scanf("%d", &bookID);
+
+    book_t *bookFound = NULL;
+    member_t *memberFound = NULL;
+    // ...
+}
+```
+
+```c
+// biblioteca.c:211-219,264
+void returnBook(book_t *library, member_t *members) {
+    int bookID, memberID;
+    printf("\nIngresa el ID del miembro: ");
+    scanf("%d", &memberID);
+    printf("Ingresa el ID del libro: ");
+    scanf("%d", &bookID);
+
+    book_t *bookFound = NULL;
+    member_t *memberFound = NULL;
+}
+```
+
+### 6. Administración de memoria
+
+#### 6.1. Almacenamiento estático
 
 ```c
 // biblioteca.c:7
 static int static_var = 0;
 ```
 
-#### 5.3. Local
+#### 6.2. Almacenamiento automático
 
 ```c
-// biblioteca.c:98.addBook<void>(book_t **, int *)
-int genre;
-```
-
-```c
-// biblioteca.c:170.issueBook<void>(book_t **, member_t *)
+// biblioteca.c:170
 int bookID, memberID;
 ```
 
+#### 6.3. Almacenamiento de hilo local o subproceso
+
+No hay almacenamiento de hilo local o subproceso en C.
+
+#### 6.4. Almacenamiento dinámico
+
 ```c
-// biblioteca.c:212.returnBook<void>(book_t *, member_t *)
-int bookID, memberID;
+// biblioteca.c:74
+book_t *new_book = (book_t *) malloc(sizeof(book_t));
 ```
-
-### 6. Administración de memoria
-
-
 
 ### 7. Expresiones
 
@@ -137,17 +216,35 @@ bookFound->quantity--; // bookFound->quantity--
 
 ### 8. Comandos
 
-
+No hay comandos en C.
 
 ### 9. Secuencia
 
+#### 9.1. Selección
 
+```c
+// biblioteca.c:75-78
+if (!new_book) {
+    printf("Error al asignar memoria para el nuevo libro.\n");
+    return;
+}
+```
 
-### 10. Selección
+```c
+// biblioteca.c:60-69
+switch (genre) {
+    case FICTION: return "Ficcion";
+    case NON_FICTION: return "No Ficcion";
+    case SCIENCE: return "Ciencia";
+    case HISTORY: return "Historia";
+    case FANTASY: return "Fantasia";
+    case BIOGRAPHY: return "Biografia";
+    case OTHER: return "Otro";
+    default: return "Desconocido";
+}
+```
 
-
-
-### 11. Iteración
+#### 9.2. Iteración
 
 ```c
 // biblioteca.c:362-364
@@ -163,7 +260,7 @@ for (int i = 0; i < new_member->issued_count; i++) { // i
 }
 ```
 
-### 12. Recursión
+#### 9.3. Recursión
 
 ```c
 // biblioteca.c:124-131.displayBooksRecursive<void>(book_t *)
@@ -177,11 +274,11 @@ void displayBooksRecursive(book_t *library) {
 }
 ```
 
-### 13. Subprogramas
+#### 9.4. Subprogramas
 
+No hay subprogramas en C.
 
-
-### 14. Tipos de datos
+### 10. Tipos de datos
 
 ```c
 // biblioteca.c:12-20
@@ -228,3 +325,5 @@ typedef struct MemoryRecord { // MemoryRecord
     struct MemoryRecord *next;
 } MemoryRecord;
 ```
+
+[Regresar al inicio](#tabla-de-contenido)
