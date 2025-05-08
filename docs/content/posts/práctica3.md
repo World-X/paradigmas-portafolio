@@ -4,8 +4,6 @@ draft = false
 title = 'Práctica 3'
 +++
 
-**NOTA**: Este artículo todavía no está completo. Se están realizando cambios y mejoras en el contenido.
-
 ## Tabla de contenido
 
 - [Aplicación "TODO" en Haskell](#aplicación-todo-en-haskell)
@@ -21,6 +19,7 @@ title = 'Práctica 3'
     - [6. Finalización y pruebas](#6-finalización-y-pruebas)
   - [Compilación y ejecución](#compilación-y-ejecución)
   - [Ejecución de pruebas](#ejecución-de-pruebas)
+- [Conclusión](#conclusión)
 
 ## Aplicación "TODO" en Haskell
 
@@ -666,5 +665,11 @@ stack test
 ```
 
 Stack compilará el código de prueba y ejecutará el programa `Spec.hs`. La salida indicará si las pruebas pasaron o fallaron.
+
+## Conclusión
+
+Haskell es un lenguaje de programación funcional poderoso y versátil, pero muy "alienígena" para alguien como yo que está acostumbrado a lenguajes de programación imperativos como C, JavaScript, Python, etc. Fue difícil adaptarse a la forma de pensar funcional, pero al final, gracias a mi perseverancia (y la IA) pude completar la práctica. Aprendí a usar Stack, a crear un proyecto básico y a implementar una aplicación de lista de tareas simple.
+
+Probablemente no vuelva a usar Haskell en el futuro, pero al menos fue parcialmente interesante, y supongo que es bueno tener un poco de conocimiento sobre lenguajes funcionales.
 
 [Regresar al inicio](#tabla-de-contenido)
