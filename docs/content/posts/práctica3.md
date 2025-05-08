@@ -50,7 +50,7 @@ stack build
 stack exec TODO-exe
 ```
 
-Con `stack build`, se compila el proyecto, instalando GHC si es necesario. Con `stack exec`, se ejecuta el ejecutable generado. Por supuesto, también se puede utilizar `stack run` para compilar y ejecutar el proyecto en un solo paso.
+Con `stack build`, se compila el proyecto, instalando GHC si es necesario. Con `stack exec TODO-exe`, se ejecuta el ejecutable generado. Por supuesto, también se puede utilizar `stack run` para compilar y ejecutar el proyecto en un solo paso, aunque debes ejecutar `stack build` primero.
 
 ### Estructura del proyecto
 
@@ -107,7 +107,7 @@ module Crud
 prompt :: [String] -> IO ()
 prompt todos = do
     putStrLn "" -- Deja una línea en blanco para claridad
-    putStrLn "Introduce un comando (q para salir):"
+    putStrLn "Insert a command (q to quit):"
     command <- getLine -- Lee la línea de entrada del usuario
 
     -- Si el comando es 'q', termina la acción IO (sale del bucle)
@@ -115,7 +115,7 @@ prompt todos = do
         then return ()
         else do
             -- Si no es 'q', muestra un mensaje y continúa el bucle recursivamente
-            putStrLn $ "Comando recibido: " ++ command
+            putStrLn $ "Command received: " ++ command
             prompt todos -- Llama a prompt de nuevo con la misma lista de TODOs
 ```
 
@@ -128,14 +128,14 @@ import Crud (prompt) -- Importa la función prompt desde el módulo Crud
 
 main :: IO ()
 main = do
-    putStrLn "Aplicación TODO básica"
+    putStrLn "Basic TODO app"
     -- Inicia el bucle de interacción con una lista de TODOs vacía
     prompt []
 ```
 
 c. **Eliminar o ignorar `src/Lib.hs`**: Como ya no usamos Lib.hs, su contenido por defecto puede ser ignorado o el archivo eliminado.
 
-En este punto, puedes compilar (stack build) y ejecutar (stack exec TODO). La aplicación se iniciará, pedirá comandos, mostrará lo que recibió (excepto 'q') y continuará hasta que introduzcas 'q'.
+En este punto, puedes compilar (`stack build`) y ejecutar (`stack exec TODO-exe`). La aplicación se iniciará, pedirá comandos, mostrará lo que recibió (excepto `'q'`) y continuará hasta que introduzcas `'q'`.
 
 #### 2. Añadir y listar tareas (`+` y `l`)
 
@@ -159,7 +159,7 @@ putTodo (n, todo) = putStrLn (show n ++ ": " ++ todo)
 prompt :: [String] -> IO ()
 prompt todos = do
     putStrLn ""
-    putStrLn "Comandos: + <tarea>, l, q" -- Actualizamos el mensaje de ayuda
+    putStrLn "Commands: + <task>, l, q" -- Actualizamos el mensaje de ayuda
     command <- getLine
 
     -- Ahora delegamos la interpretación del comando a la función 'interpret'
@@ -171,13 +171,13 @@ interpret :: String -> [String] -> IO ()
 -- Comando '+' para añadir un TODO: pattern matching en la cadena
 -- Si la cadena empieza con "+ " seguido de algo, captura el resto como 'todo'
 interpret ('+':' ':todo) todos = do
-    putStrLn $ "Añadiendo tarea: " ++ todo
+    putStrLn $ "Adding task: " ++ todo
     -- Llama a prompt con la nueva lista (añadiendo el nuevo todo al principio)
     prompt (todo:todos) 
 
 -- Comando 'l' para listar todos los TODOs
 interpret  "l"           todos = do
-    putStrLn "Lista de tareas:"
+    putStrLn "List of tasks:"
     -- Muestra cada TODO con su índice (0-basado)
     mapM_ putTodo (zip [0..] todos) -- zip junta índices con tareas, mapM_ ejecuta putTodo para cada par
     prompt todos -- Continúa el bucle
@@ -187,7 +187,7 @@ interpret  "q"           todos = return () -- Termina la acción IO
 
 -- Cualquier otro comando se considera inválido
 interpret  command       todos = do
-    putStrLn ("Comando inválido: `" ++ command ++ "`")
+    putStrLn ("Invalid command: `" ++ command ++ "`")
     prompt todos -- Continúa el bucle con la misma lista
 ```
 
@@ -216,7 +216,7 @@ putTodo (n, todo) = putStrLn (show n ++ ": " ++ todo)
 prompt :: [String] -> IO ()
 prompt todos = do
     putStrLn ""
-    putStrLn "Comandos: + <tarea>, - <num>, s <num>, l, q" -- Actualizamos el mensaje de ayuda
+    putStrLn "Commands: + <task>, - <num>, s <num>, l, q" -- Actualizamos el mensaje de ayuda
     command <- getLine
 
     interpret command todos
@@ -225,50 +225,50 @@ prompt todos = do
 interpret :: String -> [String] -> IO ()
 
 interpret ('+':' ':todo) todos = do
-    putStrLn $ "Añadiendo tarea: " ++ todo
+    putStrLn $ "Adding task: " ++ todo
     prompt (todo:todos) 
 
 -- Comando '-' para eliminar un TODO por índice
 interpret ('-':' ':numStr) todos = do
     case readMaybe numStr of -- Usamos readMaybe para intentar leer el número
         Nothing -> do
-            putStrLn "Error: Índice debe ser un número válido."
+            putStrLn "Error: Index must be a valid number."
             prompt todos
         Just num -> do
             case deleteOne num todos of
                 Nothing -> do
-                    putStrLn "Error: No hay tarea con ese número."
+                    putStrLn "Error: There's no task with that number."
                     prompt todos
                 Just todos' -> do
-                    putStrLn $ "Tarea " ++ numStr ++ " eliminada."
+                    putStrLn $ "Task " ++ numStr ++ " deleted."
                     prompt todos'
 
 -- Comando 's' para mostrar un TODO por índice
 interpret ('s':' ':numStr) todos = do
      case readMaybe numStr of -- Usamos readMaybe para intentar leer el número
         Nothing -> do
-            putStrLn "Error: Índice debe ser un número válido."
+            putStrLn "Error: Index must be a valid number."
             prompt todos
         Just num -> do
             case showOne num todos of
                 Nothing -> do
-                    putStrLn "Error: No hay tarea con ese número."
+                    putStrLn "Error: There's no task with that number."
                     prompt todos
                 Just todo -> do
-                    putStrLn $ "Tarea " ++ show num ++ ": " ++ todo 
+                    putStrLn $ "Task " ++ show num ++ ": " ++ todo
                     prompt todos
 
 interpret  "l"           todos = do
     let numberOfTodos = length todos
     putStrLn ""
-    print $ show numberOfTodos ++ " en total"
+    print $ show numberOfTodos ++ " in total"
     mapM_ putTodo (zip [0..] todos)
     prompt todos
 
 interpret  "q"           todos = return ()
 
 interpret  command       todos = do
-    putStrLn ("Comando inválido: `" ++ command ++ "`")
+    putStrLn ("Invalid command: `" ++ command ++ "`")
     prompt todos
 
 -- Función auxiliar para eliminar un elemento por índice
@@ -316,60 +316,60 @@ putTodo (n, todo) = putStrLn (show n ++ ": " ++ todo)
 prompt :: [String] -> IO ()
 prompt todos = do
     putStrLn ""
-    putStrLn "Comandos: + <tarea>, - <num>, s <num>, l, c, q" -- Actualizamos el mensaje de ayuda
+    putStrLn "Commands: + <task>, - <num>, s <num>, l, c, q" -- Actualizamos el mensaje de ayuda
     command <- getLine
     interpret command todos
 
 interpret :: String -> [String] -> IO ()
 
 interpret ('+':' ':todo) todos = do
-    putStrLn $ "Añadiendo tarea: " ++ todo
+    putStrLn $ "Adding task: " ++ todo
     prompt (todo:todos) 
 
 interpret ('-':' ':numStr) todos = do
     case readMaybe numStr of 
         Nothing -> do
-            putStrLn "Error: Índice debe ser un número válido."
+            putStrLn "Error: Index must be a valid number."
             prompt todos
         Just num -> do
             case deleteOne num todos of
                 Nothing -> do
-                    putStrLn "Error: No hay tarea con ese número."
+                    putStrLn "Error: There's no task with that number."
                     prompt todos
                 Just todos' -> do
-                    putStrLn $ "Tarea " ++ numStr ++ " eliminada."
+                    putStrLn $ "Task " ++ numStr ++ " deleted."
                     prompt todos'
 
 interpret ('s':' ':numStr) todos = do
      case readMaybe numStr of
         Nothing -> do
-            putStrLn "Error: Índice debe ser un número válido."
+            putStrLn "Error: Index must be a valid number."
             prompt todos
         Just num -> do
             case showOne num todos of
                 Nothing -> do
-                    putStrLn "Error: No hay tarea con ese número."
+                    putStrLn "Error: There's no task with that number."
                     prompt todos
                 Just todo -> do
-                    putStrLn $ "Tarea " ++ show num ++ ": " ++ todo 
+                    putStrLn $ "Task " ++ show num ++ ": " ++ todo
                     prompt todos
 
 interpret  "l"           todos = do
     let numberOfTodos = length todos
     putStrLn ""
-    print $ show numberOfTodos ++ " en total"
+    print $ show numberOfTodos ++ " in total"
     mapM_ putTodo (zip [0..] todos)
     prompt todos
 
 -- Comando 'c' para limpiar la lista de TODOs
 interpret  "c"           todos = do
-    putStrLn "Limpiando lista de tareas."
+    putStrLn "Clear todo list."
     prompt [] -- Simplemente llama a prompt con una lista vacía
 
 interpret  "q"           todos = return ()
 
 interpret  command       todos = do
-    putStrLn ("Comando inválido: `" ++ command ++ "`")
+    putStrLn ("Invalid command: `" ++ command ++ "`")
     prompt todos
 
 deleteOne :: Int -> [a] -> Maybe [a]
@@ -443,30 +443,30 @@ interpret ('+':' ':todo) todos = do
 interpret ('-':' ':numStr) todos = do
     case readMaybe numStr of 
         Nothing -> do
-            putStrLn "Error: Índice debe ser un número válido."
+            putStrLn "Error: Index must be a valid number."
             prompt todos
         Just num -> do
             case deleteOne num todos of
                 Nothing -> do
-                    putStrLn "Error: No hay tarea con ese número."
+                    putStrLn "Error: There's no task with that number."
                     prompt todos
                 Just todos' -> do
-                    putStrLn $ "Tarea " ++ numStr ++ " eliminada."
+                    putStrLn $ "Task " ++ numStr ++ " deleted."
                     prompt todos'
 
 interpret ('s':' ':numStr) todos = do
      case readMaybe numStr of
         Nothing -> do
-            putStrLn "Error: Índice debe ser un número válido."
+            putStrLn "Error: Index must be a valid number."
             prompt todos
         Just num -> do
             case showOne num todos of
                 Nothing -> do
-                    putStrLn "Error: No hay tarea con ese número."
+                    putStrLn "Error: There's no task with that number."
                     prompt todos
                 Just todo -> do
                     -- print $ numStr ++ ". " ++ todo -- Formato original
-                    putStrLn $ "Tarea " ++ show num ++ ": " ++ todo -- Formato consistente
+                    putStrLn $ "Task " ++ show num ++ ": " ++ todo -- Formato consistente
                     prompt todos
 
 interpret  "l"           todos = do
@@ -512,18 +512,18 @@ editTodo :: String -> [String] -> String -> IO ()
 editTodo ('e':' ':numStr) todos newTodo = do
     case readMaybe numStr of -- Intenta leer el número de índice
         Nothing -> do
-            putStrLn "Error: Índice para editar debe ser un número válido."
+            putStrLn "Error: Index to edit must be a valid number."
             prompt todos
         Just index -> do
             -- Verifica si el índice es válido usando editOne (o showOne, son similares)
             case editOne index todos newTodo of -- newTodo no se usa en editOne, solo verifica índice
                 Nothing -> do
-                    putStrLn "Error: No hay tarea con ese número para editar."
+                    putStrLn "Error: There's no task with that number to edit."
                     prompt todos
                 Just oldTodoContent -> do -- oldTodoContent es el contenido antiguo del TODO
                     putStrLn ""
-                    print $ "Old todo is " ++ oldTodoContent -- Mensaje original
-                    print $ "New todo is " ++ newTodo       -- Mensaje original
+                    print $ "Old todo is " ++ oldTodoContent
+                    print $ "New todo is " ++ newTodo
 
                     -- Realiza la edición usando la función pura editIndex
                     let newTodos = editIndex index newTodo todos 
