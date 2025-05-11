@@ -15,7 +15,7 @@ title = 'Práctica 3'
     - [2. Añadir y listar tareas (`+` y `l`)](#2-añadir-y-listar-tareas--y-l)
     - [3. Eliminar y mostrar tareas (`-` y `s`)](#3-eliminar-y-mostrar-tareas---y-s)
     - [4. Limpiar tareas (`c`)](#4-limpiar-tareas-c)
-    - [5. Paso 5: Editar tareas (`e`)](#5-paso-5-editar-tareas-e)
+    - [5. Editar tareas (`e`)](#5-editar-tareas-e)
     - [6. Finalización y pruebas](#6-finalización-y-pruebas)
   - [Compilación y ejecución](#compilación-y-ejecución)
   - [Ejecución de pruebas](#ejecución-de-pruebas)
@@ -393,7 +393,7 @@ showOne n todos
 
 Ahora el comando c limpiará la lista.
 
-#### 5. Paso 5: Editar tareas (`e`)
+#### 5. Editar tareas (`e`)
 
 La edición es el comando más complejo, ya que requiere un índice y *otra* línea de entrada con el nuevo contenido. Implementaremos las funciones auxiliares `editIndex`, `editOne` y la función principal de edición `editTodo`. La función `prompt` necesitará manejar el comando `e` de manera especial para solicitar el segundo input antes de llamar a `editTodo`.
 
